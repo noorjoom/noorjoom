@@ -731,9 +731,7 @@ footer {
     transform: translateY(0);
 }
 
-
-/* ToFix: Typing Animations */
- /*
+/* Typing Animations */
 .hero-title {
     position: relative;
     display: inline-block;
@@ -742,7 +740,7 @@ footer {
 .hero-title::after {
     content: '';
     position: absolute;
-    right: -0.1em;
+    right: -0.15em;
     top: 0;
     height: 100%;
     width: 2px;
@@ -750,8 +748,31 @@ footer {
     animation: blink-caret 0.8s step-end infinite;
 }
 
+.hero-title.typing::after {
+    animation: blink-caret 0.8s step-end infinite;
+}
+
+.hero-title .name {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.hero-title .name.typing-active {
+    animation: typing-name 2s steps(14, end) forwards;
+}
+
+@keyframes typing-name {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 290px;
+    }
+}
+
+
 @keyframes blink-caret {
     from, to { opacity: 1; }
     50% { opacity: 0; }
 }
-*/
