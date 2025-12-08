@@ -73,30 +73,19 @@ function typeWriter(element, text, options = {}) {
 
 // Initialize all typing animations sequentially
 function initTypingAnimations() {
-  const nameElement = document.querySelector('.hero-title .name');
   const subtitleElement = document.querySelector('.hero-subtitle');
   const descriptionElement = document.querySelector('.hero-description');
   
-  if (!nameElement || !subtitleElement || !descriptionElement) return;
+  if (!subtitleElement || !descriptionElement) return;
   
-  const nameText = 'Noor Joomratty';
   const subtitleText = 'Computer Science student and frontend-focused engineer crafting fast, user-centered web experiences.';
   const descriptionText = 'Building intelligent systems and full-stack applications with a passion for web development. Currently working as a Working Student - Frontend Web Developer at Strato GmbH, Berlin.';
   
-  // Chain animations: name -> subtitle -> description
-  typeWriter(nameElement, nameText, {
-    baseSpeed: 80,
+  // Chain animations: subtitle -> description
+  typeWriter(subtitleElement, subtitleText, {
+    baseSpeed: 50,
     showCursor: true,
-    removeCursorOnComplete: false
-  }).then(() => {
-    // Wait a bit before starting subtitle
-    return new Promise(resolve => setTimeout(resolve, 500));
-  }).then(() => {
-    return typeWriter(subtitleElement, subtitleText, {
-      baseSpeed: 50,
-      showCursor: true,
-      removeCursorOnComplete: true
-    });
+    removeCursorOnComplete: true
   }).then(() => {
     // Wait a bit before starting description
     return new Promise(resolve => setTimeout(resolve, 300));
